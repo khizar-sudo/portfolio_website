@@ -50,13 +50,16 @@ const Projects = ({ theme }: { theme: string }) => {
                     <Link
                       to={project.github}
                       target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.name} source code on GitHub`}
                       className="w-8 h-8 rounded-full flex justify-center items-center bg-black dark:bg-white hover:scale-150 transition-all duration-150 ease-in-out"
                     >
                       <img
                         src={theme === "dark" ? github : githubWhite}
                         width={20}
                         height={20}
-                        className="w-1/2 h-1/2 object-contain "
+                        alt=""
+                        className="w-1/2 h-1/2 object-contain"
                       />
                     </Link>
 
@@ -64,13 +67,16 @@ const Projects = ({ theme }: { theme: string }) => {
                       <Link
                         to={project.deployment}
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.name} live demo`}
                         className="w-8 h-8 rounded-full flex justify-center items-center bg-black dark:bg-white hover:scale-150 transition-all duration-150 ease-in-out"
                       >
                         <img
                           src={theme === "dark" ? clip : clipWhite}
                           width={20}
                           height={20}
-                          className="w-1/2 h-1/2 object-contain "
+                          alt=""
+                          className="w-1/2 h-1/2 object-contain"
                         />
                       </Link>
                     )}
