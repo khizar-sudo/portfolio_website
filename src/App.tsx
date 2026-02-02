@@ -5,7 +5,7 @@ import { Navbar, Header, Footer } from "./components";
 import { Landing } from "./pages";
 import FOG from "vanta/src/vanta.fog.js";
 import { vantConfigDark, vantConfigLight } from "./styles";
-import AnimatedCursor from "react-animated-cursor";
+import Cursor from "./components/Cursor";
 
 interface VantaEffect {
   destroy: () => void;
@@ -57,18 +57,7 @@ function App() {
     <div className="w-screen min-h-screen m-0 p-0 flex flex-col">
       <BrowserRouter>
         <Landing theme={theme} />
-        <AnimatedCursor
-          color={theme === "dark" ? "0,0,0" : "255, 255, 255"}
-          innerSize={8}
-          outerSize={40}
-          innerScale={1}
-          outerScale={1.5}
-          outerStyle={{
-            backgroundColor: "white",
-            mixBlendMode: "difference",
-          }}
-          trailingSpeed={7}
-        />
+        <Cursor />
         <Navbar theme={theme} />
         <Header theme={theme} setTheme={setTheme} />
         <AnimatedRoutes theme={theme} />
