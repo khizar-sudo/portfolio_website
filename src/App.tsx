@@ -14,7 +14,7 @@ interface VantaEffect {
 // Helper function to determine initial theme
 function getInitialTheme(): "dark" | "light" {
   if (typeof window === "undefined") return "dark";
-  
+
   if (
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&

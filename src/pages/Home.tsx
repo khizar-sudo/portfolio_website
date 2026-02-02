@@ -40,7 +40,7 @@ const Home = ({ theme }: { theme: string }) => {
                   <img
                     src={
                       (theme === "light" && !hover) ||
-                      (theme === "dark" && hover)
+                        (theme === "dark" && hover)
                         ? chevronRight
                         : chevronWhite
                     }
