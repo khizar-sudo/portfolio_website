@@ -1,19 +1,15 @@
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { navLinks } from "../constants";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const Navbar = ({ theme }: { theme: string }) => {
   const location = useLocation();
-  const [active, setActive] = useState(location.pathname);
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setActive("home");
-    } else {
-      setActive(location.pathname.replace("/", ""));
-    }
-  }, [location]);
+  
+  // Derive active state directly from pathname instead of using useEffect
+  const active = useMemo(() => {
+    return location.pathname === "/" ? "home" : location.pathname.replace("/", "");
+  }, [location.pathname]);
 
   return (
     <nav className="flex justify-center items-center fixed bottom-0 w-full h-20 sm:top-0 sm:right-2 sm:h-screen sm:w-20 z-50">
