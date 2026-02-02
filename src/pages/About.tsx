@@ -1,6 +1,6 @@
 import { Transition } from "../components";
 import { me } from "../assets";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { skills } from "../constants";
 
 const About = () => {
