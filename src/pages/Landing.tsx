@@ -3,9 +3,8 @@ import { motion } from "motion/react";
 const Landing = ({ theme }: { theme: string }) => {
   return (
     <motion.div
-      className={`fixed h-screen w-screen flex justify-center items-center z-[100] ${
-        theme === "dark" ? "bg-black" : "bg-white"
-      }`}
+      className={`fixed h-screen w-screen flex justify-center items-center z-100 ${theme === "dark" ? "bg-black" : "bg-white"
+        }`}
       initial={{ y: "0%", height: "100%" }}
       animate={{
         y: "-100%",

@@ -24,23 +24,21 @@ const Projects = ({ theme }: { theme: string }) => {
           {proj.map((project, index) => (
             <li
               key={project.name}
-              className={`flex w-full items-center justify-center my-10 flex-col md:gap-0 bg-white dark:bg-black md:bg-transparent md:dark:bg-transparent border-2 border-black dark:border-white md:border-0 p-4 md:p-0 rounded-lg ${
-                index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
+              className={`flex w-full items-center justify-center my-10 flex-col md:gap-0 bg-white dark:bg-black md:bg-transparent md:dark:bg-transparent border-2 border-black dark:border-white md:border-0 p-4 md:p-0 rounded-lg ${index % 2 == 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
             >
               <div className="relative flex rounded-lg dark:bg-white bg-black md:hover:scale-[102%] transition-all duration-150 ease-in-out">
                 <img
                   src={project.image}
                   alt={`${project.name} image`}
-                  className="aspect-[5/3] md:max-w-[500px] w-full h-full object-cover rounded-lg md:border-2 border-black dark:border-white"
+                  className="aspect-5/3 md:max-w-[500px] w-full h-full object-cover rounded-lg md:border-2 border-black dark:border-white"
                 />
               </div>
               <div
-                className={`relative w-full md:w-[50%] bg-white dark:bg-black md:border-2 rounded-lg border-black dark:border-white py-6 md:p-6 z-10 md:hover:scale-[102%] transition-all duration-150 ease-in-out ${
-                  index % 2 == 0
-                    ? "md:-ml-[25%] lg:-ml-[10%]"
-                    : "md:-mr-[25%] lg:-mr-[10%]"
-                }`}
+                className={`relative w-full md:w-[50%] bg-white dark:bg-black md:border-2 rounded-lg border-black dark:border-white py-6 md:p-6 z-10 md:hover:scale-[102%] transition-all duration-150 ease-in-out ${index % 2 == 0
+                  ? "md:-ml-[25%] lg:-ml-[10%]"
+                  : "md:-mr-[25%] lg:-mr-[10%]"
+                  }`}
               >
                 <div className="flex justify-between">
                   <h2 className="text-xl sm:text-3xl font-bold mb-4">

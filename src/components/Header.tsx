@@ -44,7 +44,7 @@ const Header = ({
           ))}
         </ul>
 
-        <div className="w-[1px] h-[20px] bg-gray-700" aria-hidden="true" />
+        <div className="w-px h-[20px] bg-gray-700" aria-hidden="true" />
 
         <div className="ml-6">
           <label className="switch link hover:scale-125 transition-all duration-100 ease-in-out">
