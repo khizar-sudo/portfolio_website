@@ -1,12 +1,10 @@
 import {
   home,
   about,
-  // work,
   projects,
   contact,
   homeWhite,
   aboutWhite,
-  // workWhite,
   projectsWhite,
   contactWhite,
   github,
@@ -19,14 +17,12 @@ import {
   react,
   ts,
   node,
-  // express,
   mongo,
   redux,
   git,
   figma,
   tailwind,
   nextjs,
-  // framer,
   luminous,
   proompt,
   netflix,
@@ -51,14 +47,6 @@ const navLinks = [
       dark: about,
     },
   },
-  // {
-  //   name: "Work",
-  //   path: "/work",
-  //   icons: {
-  //     light: workWhite,
-  //     dark: work,
-  //   },
-  // },
   {
     name: "Projects",
     path: "/projects",
@@ -130,10 +118,6 @@ const skills = [
     name: "Node",
     icon: node,
   },
-  // {
-  //   name: "Express",
-  //   icon: express,
-  // },
   {
     name: "MongoDB",
     icon: mongo,
@@ -158,10 +142,6 @@ const skills = [
     name: "Tailwind",
     icon: tailwind,
   },
-  // {
-  //   name: "Framer Motion",
-  //   icon: framer,
-  // },
 ];
 
 const proj = [
