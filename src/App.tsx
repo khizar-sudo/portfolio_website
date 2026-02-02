@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BrowserRouter } from "react-router-dom";
 import AnimatedRoutes from "./AnimatedRoutes";
 import { Navbar, Header, Footer } from "./components";
@@ -7,30 +7,49 @@ import FOG from "vanta/src/vanta.fog.js";
 import { vantConfigDark, vantConfigLight } from "./styles";
 import AnimatedCursor from "react-animated-cursor";
 
-function App() {
-  const [theme, setTheme] = useState("dark");
-  let vantaInstance: { destroy: () => void } | null = null;
+interface VantaEffect {
+  destroy: () => void;
+}
 
+// Helper function to determine initial theme
+function getInitialTheme(): "dark" | "light" {
+  if (typeof window === "undefined") return "dark";
+  
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    return "dark";
+  }
+  return "light";
+}
+
+function App() {
+  const [theme, setTheme] = useState<"dark" | "light">(getInitialTheme);
+  const vantaRef = useRef<VantaEffect | null>(null);
+
+  // Sync theme with DOM and create Vanta effect
   useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    // Destroy previous Vanta instance before creating new one
+    if (vantaRef.current) {
+      vantaRef.current.destroy();
+    }
+
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
-      setTheme("dark");
       localStorage.theme = "dark";
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      vantaInstance = FOG(vantConfigDark);
+      vantaRef.current = FOG(vantConfigDark);
     } else {
       document.documentElement.classList.remove("dark");
-      setTheme("light");
       localStorage.theme = "light";
-      vantaInstance = FOG(vantConfigLight);
+      vantaRef.current = FOG(vantConfigLight);
     }
 
     return () => {
-      vantaInstance?.destroy();
+      if (vantaRef.current) {
+        vantaRef.current.destroy();
+      }
     };
   }, [theme]);
 
@@ -52,21 +71,7 @@ function App() {
         />
         <Navbar theme={theme} />
         <Header theme={theme} setTheme={setTheme} />
-
-        {/* <button
-          type="button"
-          onClick={() => {
-            localStorage.theme =
-              localStorage.theme === "dark" ? "light" : "dark";
-            setTheme(localStorage.theme);
-            // window.location.reload();
-          }}
-        >
-          Change Dark Mode
-        </button> */}
-
         <AnimatedRoutes theme={theme} />
-
         <div
           id="background"
           style={{
