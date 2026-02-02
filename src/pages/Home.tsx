@@ -1,9 +1,8 @@
 import { Transition } from "../components";
 import { chevronRight, chevronWhite } from "../assets";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { HireMe } from "../components";
 
 const Home = ({ theme }: { theme: string }) => {
   const [hover, setHover] = useState(false);
@@ -53,8 +52,6 @@ const Home = ({ theme }: { theme: string }) => {
             </Link>
           </div>
         </div>
-
-        {/* <HireMe theme={theme} /> */}
       </div>
       <Transition />
     </div>

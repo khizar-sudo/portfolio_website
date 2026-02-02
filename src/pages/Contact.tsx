@@ -1,7 +1,6 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import { Transition } from "../components";
 import emailjs from "@emailjs/browser";
-// import { motion } from "framer-motion";
 
 const Contact = () => {
   const [form, setForm] = useState({
