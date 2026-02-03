@@ -71,7 +71,9 @@ const About = () => {
                 key={skill.name}
                 className="flex flex-col justify-between items-center"
               >
-                <img src={skill.icon} width={70} height={70} alt={skill.name} />
+                <div className="flex h-full justify-center items-center">
+                  <img src={skill.icon} width={70} height={70} alt={skill.name} />
+                </div>
                 <span className="text-sm font-semibold">{skill.name}</span>
               </li>
             ))}

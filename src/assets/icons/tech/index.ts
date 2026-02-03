@@ -21,6 +21,7 @@ import rtl from "./rtl.png";
 import kubernetes from "./kubernetes.png";
 import docker from "./docker.png";
 import helm from "./helm.png";
+import golang from "./go.svg";
 
 export {
   html,
@@ -45,4 +46,5 @@ export {
   kubernetes,
   docker,
   helm,
+  golang,
 };

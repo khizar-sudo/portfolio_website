@@ -27,13 +27,15 @@ const Projects = ({ theme }: { theme: string }) => {
               className="flex flex-col bg-white dark:bg-black border-2 border-black dark:border-white rounded-lg overflow-hidden hover:scale-[102%] transition-all duration-150 ease-in-out"
             >
               {/* Image Section */}
-              <div className="relative w-full border-b border-black/30 dark:border-white/30">
-                <img
-                  src={project.image}
-                  alt={`${project.name} image`}
-                  className="aspect-video w-full object-cover"
-                />
-              </div>
+              {project.image && (
+                <div className="relative w-full border-b border-black/30 dark:border-white/30">
+                  <img
+                    src={project.image}
+                    alt={`${project.name} image`}
+                    className={`aspect-video w-full ${project.centerImage ? "mx-auto" : "object-cover"}`}
+                  />
+                </div>
+              )}
 
               {/* Content Section */}
               <div className="flex flex-col flex-1 p-5">
@@ -58,7 +60,7 @@ const Projects = ({ theme }: { theme: string }) => {
                       />
                     </Link>
 
-                    {project.deployment !== "" && (
+                    {project.deployment && (
                       <Link
                         to={project.deployment}
                         target="_blank"
