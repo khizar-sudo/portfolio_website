@@ -70,7 +70,7 @@ export default function Cursor() {
     if (typeof window === "undefined") return null
 
     return (
-        <div className="pointer-events-none fixed inset-0 z-50">
+        <div className="pointer-events-none fixed inset-0 z-1000">
             <div
                 className="absolute rounded-full dark:bg-white bg-black "
                 style={{
@@ -83,10 +83,10 @@ export default function Cursor() {
             />
 
             <div
-                className="absolute rounded-full border dark:border-white border-black "
+                className="absolute rounded-full border dark:border-white border-black backdrop-invert"
                 style={{
-                    width: isHovering ? "44px" : "28px",
-                    height: isHovering ? "44px" : "28px",
+                    width: isHovering ? "44px" : "32px",
+                    height: isHovering ? "44px" : "32px",
                     transform: "translate(-50%, -50%)",
                     left: `${renderPos.border.x}px`,
                     top: `${renderPos.border.y}px`,
