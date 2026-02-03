@@ -4,7 +4,7 @@ import AnimatedRoutes from "./AnimatedRoutes";
 import { Navbar, Header, Footer, ScrollToTop } from "./components";
 import { Landing } from "./pages";
 import FOG from "vanta/src/vanta.fog.js";
-import { vantConfigDark, vantConfigLight } from "./styles";
+import { vantConfigDark, vantConfigLight } from "./constants";
 import Cursor from "./components/Cursor";
 
 interface VantaEffect {
