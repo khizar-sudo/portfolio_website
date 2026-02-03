@@ -72,7 +72,7 @@ const headerLinks = [
       light: github,
       dark: githubWhite,
     },
-    path: "https://github.com/HickeryDickery",
+    path: "https://github.com/khizar-sudo",
   },
   {
     name: "LinkedIn",
