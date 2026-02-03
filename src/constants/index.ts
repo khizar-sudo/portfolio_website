@@ -1,18 +1,16 @@
 import {
   home,
   about,
-  projects,
+  folder,
   contact,
   homeWhite,
   aboutWhite,
-  projectsWhite,
+  folderWhite,
   contactWhite,
   github,
   githubWhite,
   linkedin,
   frontendMentor,
-  html,
-  css,
   js,
   react,
   ts,
@@ -28,6 +26,16 @@ import {
   netflix,
   rental,
   space,
+  supabase,
+  postgres,
+  nestjs,
+  mySQL,
+  graphql,
+  jest,
+  rtl,
+  kubernetes,
+  docker,
+  helm,
 } from "../assets";
 
 const navLinks = [
@@ -51,8 +59,8 @@ const navLinks = [
     name: "Projects",
     path: "/projects",
     icons: {
-      light: projectsWhite,
-      dark: projects,
+      light: folderWhite,
+      dark: folder,
     },
   },
   {
@@ -94,14 +102,6 @@ const headerLinks = [
 
 const skills = [
   {
-    name: "HTML",
-    icon: html,
-  },
-  {
-    name: "CSS",
-    icon: css,
-  },
-  {
     name: "JavaScript",
     icon: js,
   },
@@ -113,15 +113,6 @@ const skills = [
     name: "React",
     icon: react,
   },
-
-  {
-    name: "Node",
-    icon: node,
-  },
-  {
-    name: "MongoDB",
-    icon: mongo,
-  },
   {
     name: "NextJS",
     icon: nextjs,
@@ -131,6 +122,60 @@ const skills = [
     icon: redux,
   },
   {
+    name: "Tailwind",
+    icon: tailwind,
+  },
+  {
+    name: "Node",
+    icon: node,
+  },
+  {
+    name: "Supabase",
+    icon: supabase,
+  },
+  {
+    name: "PostgreSQL",
+    icon: postgres,
+  },
+  {
+    name: "MongoDB",
+    icon: mongo,
+  },
+  {
+    name: "MySQL",
+    icon: mySQL,
+  },
+  {
+    name: "NestJS",
+    icon: nestjs,
+  },
+
+  {
+    name: "GraphQL",
+    icon: graphql,
+  },
+  {
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Kubernetes",
+    icon: kubernetes,
+  },
+
+  {
+    name: "Helm Charts",
+    icon: helm,
+  },
+  {
+    name: "Jest",
+    icon: jest,
+  },
+  {
+    name: "React Testing Library",
+    icon: rtl,
+  },
+  {
     name: "Git",
     icon: git,
   },
@@ -138,13 +183,9 @@ const skills = [
     name: "Figma",
     icon: figma,
   },
-  {
-    name: "Tailwind",
-    icon: tailwind,
-  },
 ];
 
-const proj = [
+const projects = [
   {
     name: "Proompt",
     description:
@@ -193,4 +234,4 @@ const proj = [
   },
 ];
 
-export { navLinks, headerLinks, skills, proj };
+export { navLinks, headerLinks, skills, projects };

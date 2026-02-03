@@ -1,6 +1,6 @@
 import { Transition } from "../components";
 import { Link } from "react-router-dom";
-import { proj } from "../constants";
+import { projects } from "../constants";
 import { clip, clipWhite, github, githubWhite } from "../assets";
 
 const Projects = ({ theme }: { theme: string }) => {
@@ -9,25 +9,25 @@ const Projects = ({ theme }: { theme: string }) => {
       <div className="w-full">
         <div className="mb-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl mb-8 font-bold text-center">
-            Passion begets Perfection
+            Passion Begets Perfection
           </h1>
-          <h2 className="text-center">
+          {/* <h2 className="text-center">
             Discover the diverse range of projects I have undertaken, showcasing
             my expertise in creating dynamic websites and applications. From
             responsive designs that adapt beautifully to any device, to scalable
             back-end systems that handle complex data interactions, each project
             in my portfolio demonstrates my commitment to quality and
             excellence.
-          </h2>
+          </h2> */}
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {proj.map((project) => (
+          {projects.map((project) => (
             <li
               key={project.name}
               className="flex flex-col bg-white dark:bg-black border-2 border-black dark:border-white rounded-lg overflow-hidden hover:scale-[102%] transition-all duration-150 ease-in-out"
             >
               {/* Image Section */}
-              <div className="relative w-full">
+              <div className="relative w-full border-b border-black/30 dark:border-white/30">
                 <img
                   src={project.image}
                   alt={`${project.name} image`}

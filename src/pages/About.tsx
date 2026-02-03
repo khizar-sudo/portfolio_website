@@ -69,7 +69,7 @@ const About = () => {
             {skills.map((skill) => (
               <li
                 key={skill.name}
-                className="flex flex-col justify-center items-center"
+                className="flex flex-col justify-between items-center"
               >
                 <img src={skill.icon} width={70} height={70} alt={skill.name} />
                 <span className="text-sm font-semibold">{skill.name}</span>
