@@ -10,6 +10,8 @@ export default function Cursor() {
 
     const [renderPos, setRenderPos] = useState({ dot: { x: 0, y: 0 }, border: { x: 0, y: 0 } })
     const [isHovering, setIsHovering] = useState(false)
+    const [isClicking, setIsClicking] = useState(false)
+    const clickTimeRef = useRef(0)
     const [hasMouse, setHasMouse] = useState(() => {
         if (typeof window === "undefined") return false
         return window.matchMedia("(pointer: fine)").matches
@@ -17,6 +19,7 @@ export default function Cursor() {
 
     const DOT_SMOOTHNESS = 0.2
     const BORDER_DOT_SMOOTHNESS = 0.1
+    const MIN_CLICK_DURATION = 200 // minimum pulse duration in ms
 
     // Subscribe to pointer type changes
     useEffect(() => {
@@ -39,10 +42,26 @@ export default function Cursor() {
         const handleMouseEnter = () => setIsHovering(true)
         const handleMouseLeave = () => setIsHovering(false)
 
+        const handleMouseDown = () => {
+            clickTimeRef.current = Date.now()
+            setIsClicking(true)
+        }
+        const handleMouseUp = () => {
+            const elapsed = Date.now() - clickTimeRef.current
+            const remaining = MIN_CLICK_DURATION - elapsed
+            if (remaining > 0) {
+                setTimeout(() => setIsClicking(false), remaining)
+            } else {
+                setIsClicking(false)
+            }
+        }
+
         // Add event listeners
         window.addEventListener("mousemove", handleMouseMove)
+        window.addEventListener("mousedown", handleMouseDown)
+        window.addEventListener("mouseup", handleMouseUp)
 
-        const interactiveElements = document.querySelectorAll("a, button, img, input, textarea, select")
+        const interactiveElements = document.querySelectorAll("a, button, input, textarea, select")
         interactiveElements.forEach((element) => {
             element.addEventListener("mouseenter", handleMouseEnter)
             element.addEventListener("mouseleave", handleMouseLeave)
@@ -74,6 +93,8 @@ export default function Cursor() {
         // Clean up
         return () => {
             window.removeEventListener("mousemove", handleMouseMove)
+            window.removeEventListener("mousedown", handleMouseDown)
+            window.removeEventListener("mouseup", handleMouseUp)
 
             interactiveElements.forEach((element) => {
                 element.removeEventListener("mouseenter", handleMouseEnter)
@@ -102,12 +123,12 @@ export default function Cursor() {
             <div
                 className="absolute rounded-full border dark:border-white border-black backdrop-invert"
                 style={{
-                    width: isHovering ? "44px" : "32px",
-                    height: isHovering ? "44px" : "32px",
-                    transform: "translate(-50%, -50%)",
+                    width: isHovering ? "44px" : "28px",
+                    height: isHovering ? "44px" : "28px",
+                    transform: `translate(-50%, -50%) scale(${isClicking ? 1.5 : 1})`,
                     left: `${renderPos.border.x}px`,
                     top: `${renderPos.border.y}px`,
-                    transition: "width 0.3s, height 0.3s",
+                    transition: "width 0.3s, height 0.3s, transform 0.15s ease-out",
                 }}
             />
         </div>
