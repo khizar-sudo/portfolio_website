@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { BrowserRouter } from "react-router-dom";
 import AnimatedRoutes from "./AnimatedRoutes";
-import { Navbar, Header, Footer } from "./components";
+import { Navbar, Header, Footer, ScrollToTop } from "./components";
 import { Landing } from "./pages";
 import FOG from "vanta/src/vanta.fog.js";
 import { vantConfigDark, vantConfigLight } from "./styles";
@@ -56,6 +56,7 @@ function App() {
   return (
     <div className="w-screen min-h-screen m-0 p-0 flex flex-col">
       <BrowserRouter>
+        <ScrollToTop />
         <Landing theme={theme} />
         <Cursor />
         <Navbar theme={theme} />
