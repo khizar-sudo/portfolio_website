@@ -52,9 +52,11 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
     border: 1px solid rgba(0, 0, 0, 1);
+    isolation: isolate;
+    transform: translateZ(0);
     @apply dark:bg-black/20 dark:border-white;
   }
 
@@ -62,8 +64,10 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    isolation: isolate;
+    transform: translateZ(0);
     @apply dark:bg-black/30 dark:border-white;
   }
 
