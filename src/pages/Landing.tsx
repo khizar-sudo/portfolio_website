@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const Landing = ({ theme }: { theme: string }) => {
   return (
     <motion.div
-      className={`fixed h-screen w-screen flex justify-center items-center z-100 ${theme === "dark" ? "bg-black" : "bg-white"
+      className={`fixed h-screen w-screen flex justify-center items-center z-100 p-5 ${theme === "dark" ? "bg-black" : "bg-white"
         }`}
       initial={{ y: "0%", height: "100%" }}
       animate={{
@@ -48,7 +48,7 @@ const Landing = ({ theme }: { theme: string }) => {
           animate={{ opacity: 1, y: "0%", transition: { duration: 1 } }}
           className="text-2xl font-bold text-center"
         >
-          FULL STACK WEB DEVELOPER
+          FULL STACK ENGINEER
         </motion.p>
       </motion.div>
     </motion.div>
