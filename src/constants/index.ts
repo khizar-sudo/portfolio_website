@@ -172,16 +172,16 @@ const skills = [
     icon: jest,
   },
   {
-    name: "React Testing Library",
-    icon: rtl,
-  },
-  {
     name: "Git",
     icon: git,
   },
   {
     name: "Figma",
     icon: figma,
+  },
+  {
+    name: "React Testing Library",
+    icon: rtl,
   },
 ];
 
