@@ -65,14 +65,14 @@ const About = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 font-bold text-center">
             Technologies I've Worked With
           </h2>
-          <ul className="flex justify-center gap-10 flex-wrap  sm:mx-20 lg:mx-40 my-16 lg:my-20">
+          <ul className="flex justify-center gap-10 flex-wrap  sm:mx-20 lg:mx-40 my-8 lg:my-20">
             {skills.map((skill) => (
               <li
                 key={skill.name}
                 className="flex flex-col justify-between items-center"
               >
                 <div className="flex h-full justify-center items-center">
-                  <img src={skill.icon} width={70} height={70} alt={skill.name} />
+                  <img src={skill.icon} width={40} height={40} alt={skill.name} />
                 </div>
                 <span className="text-sm font-semibold">{skill.name}</span>
               </li>

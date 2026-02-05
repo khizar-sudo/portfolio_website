@@ -91,7 +91,7 @@ const Contact = () => {
         <form
           ref={formRef}
           action={formAction}
-          className="flex w-full sm:w-3/4 lg:sm:w-1/2 flex-col gap-8 my-6 border-2 border-black dark:border-white p-4 sm:p-6 rounded-xl formBackground"
+          className="flex w-full sm:w-3/4 lg:sm:w-1/2 flex-col gap-8 my-6 border-2 border-black dark:border-white p-4 sm:p-6 rounded-xl backgroundBlur"
         >
           <label className="flex flex-col cursor-none">
             <span className="font-semibold text-lg mb-4 ">Name</span>
