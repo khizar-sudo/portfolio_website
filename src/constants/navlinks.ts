@@ -3,6 +3,8 @@ import {
   aboutWhite,
   contact,
   contactWhite,
+  experience,
+  experienceWhite,
   folder,
   folderWhite,
   home,
@@ -12,6 +14,7 @@ import {
 export const navLinks = [
   {
     name: "Home",
+    shortName: "Home",
     path: "/",
     icons: {
       light: homeWhite,
@@ -20,6 +23,7 @@ export const navLinks = [
   },
   {
     name: "About",
+    shortName: "About",
     path: "/about",
     icons: {
       light: aboutWhite,
@@ -28,6 +32,7 @@ export const navLinks = [
   },
   {
     name: "Projects",
+    shortName: "Projects",
     path: "/projects",
     icons: {
       light: folderWhite,
@@ -35,7 +40,17 @@ export const navLinks = [
     },
   },
   {
+    name: "Experience",
+    shortName: "Exp",
+    path: "/experience",
+    icons: {
+      light: experienceWhite,
+      dark: experience,
+    },
+  },
+  {
     name: "Contact",
+    shortName: "Contact",
     path: "/contact",
     icons: {
       light: contactWhite,

@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "motion/react";
-import { Home, About, Projects, Contact } from "./pages";
+import { Home, About, Projects, Contact, Experience } from "./pages";
 
 const AnimatedRoutes = ({ theme }: { theme: string }) => {
   const location = useLocation();
@@ -12,6 +12,7 @@ const AnimatedRoutes = ({ theme }: { theme: string }) => {
         <Route path="/about" element={<About />} />
         {/* <Route path="/work" element={<Work />} /> */}
         <Route path="/projects" element={<Projects theme={theme} />} />
+        <Route path="/experience" element={<Experience />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>

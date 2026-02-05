@@ -6,6 +6,8 @@ import folder from "./projects.svg";
 import folderWhite from "./projects-white.svg";
 import contact from "./contact.svg";
 import contactWhite from "./contact-white.svg";
+import experience from "./briefcase.svg";
+import experienceWhite from "./briefcase-white.svg";
 
 export {
   home,
@@ -16,4 +18,6 @@ export {
   folderWhite,
   contact,
   contactWhite,
+  experience,
+  experienceWhite,
 };
