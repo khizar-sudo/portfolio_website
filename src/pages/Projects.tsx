@@ -1,7 +1,5 @@
-import { Transition } from "../components";
-import { Link } from "react-router-dom";
+import { Transition, ProjectCard } from "../components";
 import { projects } from "../constants";
-import { clip, clipWhite, github, githubWhite } from "../assets";
 
 const Projects = ({ theme }: { theme: string }) => {
   return (
@@ -11,91 +9,49 @@ const Projects = ({ theme }: { theme: string }) => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl mb-8 font-bold text-center">
             Passion Begets Perfection
           </h1>
-          {/* <h2 className="text-center">
-            Discover the diverse range of projects I have undertaken, showcasing
-            my expertise in creating dynamic websites and applications. From
-            responsive designs that adapt beautifully to any device, to scalable
-            back-end systems that handle complex data interactions, each project
-            in my portfolio demonstrates my commitment to quality and
-            excellence.
-          </h2> */}
         </div>
-        <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <li
-              key={project.name}
-              className="flex flex-col bg-white dark:bg-black border-2 border-black dark:border-white rounded-lg overflow-hidden hover:scale-[102%] transition-all duration-150 ease-in-out"
-            >
-              {/* Image Section */}
-              {project.image && (
-                <div className="relative w-full border-b border-black/30 dark:border-white/30">
-                  <img
-                    src={project.image}
-                    alt={`${project.name} image`}
-                    className={`aspect-video w-full ${project.centerImage ? "mx-auto" : "object-cover"}`}
-                  />
-                </div>
-              )}
 
-              {/* Content Section */}
-              <div className="flex flex-col flex-1 p-5">
-                <div className="flex justify-between items-start gap-2 mb-3">
-                  <h2 className="text-xl sm:text-2xl font-bold">
-                    {project.name}
-                  </h2>
-                  <div className="flex gap-2 shrink-0">
-                    <Link
-                      to={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.name} source code on GitHub`}
-                      className="w-8 h-8 rounded-full flex justify-center items-center bg-black dark:bg-white hover:scale-125 transition-all duration-150 ease-in-out"
-                    >
-                      <img
-                        src={theme === "dark" ? github : githubWhite}
-                        width={20}
-                        height={20}
-                        alt=""
-                        className="w-1/2 h-1/2 object-contain"
-                      />
-                    </Link>
+        {/* Fullstack Projects Section */}
+        {projects.fullstack.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">
+              Full-Stack Projects
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {projects.fullstack.map((project) => (
+                <ProjectCard key={project.name} project={project} theme={theme} />
+              ))}
+            </ul>
+          </div>
+        )}
 
-                    {project.deployment && (
-                      <Link
-                        to={project.deployment}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`View ${project.name} live demo`}
-                        className="w-8 h-8 rounded-full flex justify-center items-center bg-black dark:bg-white hover:scale-125 transition-all duration-150 ease-in-out"
-                      >
-                        <img
-                          src={theme === "dark" ? clip : clipWhite}
-                          width={20}
-                          height={20}
-                          alt=""
-                          className="w-1/2 h-1/2 object-contain"
-                        />
-                      </Link>
-                    )}
-                  </div>
-                </div>
+        {/* Backend Projects Section */}
+        {projects.backend.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">
+              Back-End Projects
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {projects.backend.map((project) => (
+                <ProjectCard key={project.name} project={project} theme={theme} />
+              ))}
+            </ul>
+          </div>
+        )}
 
-                <p className="text-sm flex-1">{project.description}</p>
-
-                <ul className="flex flex-wrap gap-x-3 gap-y-1 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                  {project.tags.map((tech) => (
-                    <li
-                      key={tech}
-                      className="text-xs text-gray-500 dark:text-gray-400"
-                    >
-                      #{tech}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {/* Frontend Projects Section */}
+        {projects.frontend.length > 0 && (
+          <div className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">
+              Front-End Projects
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {projects.frontend.map((project) => (
+                <ProjectCard key={project.name} project={project} theme={theme} />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <Transition />
     </div>
